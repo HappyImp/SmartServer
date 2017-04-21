@@ -1,9 +1,8 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -30,36 +29,38 @@ public class MessageService implements Runnable {
         BufferedReader in = null;
         String clientName = client.getInetAddress().toString();
         try {
-            in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            out = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
-            OutputStream ops = client.getOutputStream();
-            OutputStreamWriter opsw = new OutputStreamWriter(ops);
-            BufferedWriter bw = new BufferedWriter(opsw);
 
-            String line;
-            System.out.println("Waiting for "+clientName);
-            //循环发送信息
+            OutputStream outputStream;
+            InputStream inputStream;
+
+            //获取输入输出流
+            outputStream = client.getOutputStream();
+            inputStream=client.getInputStream();
+            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+            PrintWriter bufferedWriter=new PrintWriter(outputStream,true);
+            //读取发来服务器信息
             while (true)
             {
-                ops.write("服务器回执".getBytes("utf-8"));
+                String line=null;
+//                bufferedWriter.println(",Hello,I'm Server!");//向客户端输出数据
+                line=bufferedReader.readLine();//读取客户端传来的数据
+                if(line==null)
+                    break;
+                System.out.println("客户端说："+line);//打印客户端传来的数据
+                bufferedWriter.println(line);
             }
-//            while((line = in.readLine()) != null) {
-//                System.out.println(clientName + ": " + line);
-//
-//                out.println(line);
-//                out.flush();
-//            }
-        }
-        catch (IOException e) {
+
+
+
+        } catch (IOException e) {
             System.out.println("Server/MessageService: IOException");
-        }
-        finally {
-            if(!client.isClosed()) {
+        } finally {
+            if (!client.isClosed()) {
                 System.out.println("Server: Client disconnected");
                 try {
                     client.close();
+                } catch (IOException e) {
                 }
-                catch (IOException e) {}
             }
         }
     }
