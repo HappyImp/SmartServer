@@ -22,4 +22,12 @@ public class TableRow{
         tableRow.add("1");
         tableRow.add("1");
     }
+
+    public List<String> getTableRow() {
+        return tableRow;
+    }
+
+    public void setTableRow(List<String> tableRow) {
+        this.tableRow = tableRow;
+    }
 }

@@ -18,4 +18,20 @@ public class DataPackage {
 
     @XStreamAlias("TablePackage")
     TablePackage tablePackage=new TablePackage();
+
+    public Head getHead() {
+        return head;
+    }
+
+    public void setHead(Head head) {
+        this.head = head;
+    }
+
+    public TablePackage getTablePackage() {
+        return tablePackage;
+    }
+
+    public void setTablePackage(TablePackage tablePackage) {
+        this.tablePackage = tablePackage;
+    }
 }

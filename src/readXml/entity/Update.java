@@ -11,7 +11,11 @@ public class Update {
     @XStreamAlias("TableRow")
     TableRow tableRow=new TableRow();
 
+    public TableRow getTableRow() {
+        return tableRow;
+    }
 
-
-
+    public void setTableRow(TableRow tableRow) {
+        this.tableRow = tableRow;
+    }
 }

@@ -13,4 +13,12 @@ public class TablePackage {
     String mElementsName="TablePackage";
     @XStreamAlias("Table")
     Table table=new Table();
+
+    public Table getTable() {
+        return table;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
 }

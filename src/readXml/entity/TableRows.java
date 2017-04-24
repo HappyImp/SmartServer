@@ -11,4 +11,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class TableRows {
     @XStreamAlias("Update")
     Update updat=new Update();
+
+    public Update getUpdat() {
+        return updat;
+    }
+
+    public void setUpdat(Update updat) {
+        this.updat = updat;
+    }
 }

@@ -18,4 +18,43 @@ public class TableField {
     String IsRequired=""; //IsRequired 0
 
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getDesc() {
+        return Desc;
+    }
+
+    public void setDesc(String desc) {
+        Desc = desc;
+    }
+
+    public String getDataType() {
+        return DataType;
+    }
+
+    public void setDataType(String dataType) {
+        DataType = dataType;
+    }
+
+    public String getDataLen() {
+        return DataLen;
+    }
+
+    public void setDataLen(String dataLen) {
+        DataLen = dataLen;
+    }
+
+    public String getIsRequired() {
+        return IsRequired;
+    }
+
+    public void setIsRequired(String isRequired) {
+        IsRequired = isRequired;
+    }
 }

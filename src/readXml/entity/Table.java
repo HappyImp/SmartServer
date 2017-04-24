@@ -23,4 +23,20 @@ public class Table {
         tableFields.add(new TableField());
         tableFields.add(new TableField());
     }
+
+    public List<TableField> getTableFields() {
+        return tableFields;
+    }
+
+    public void setTableFields(List<TableField> tableFields) {
+        this.tableFields = tableFields;
+    }
+
+    public TableRows getTableRows() {
+        return tableRows;
+    }
+
+    public void setTableRows(TableRows tableRows) {
+        this.tableRows = tableRows;
+    }
 }
